@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive SciPy tutorial for scientific computing in Python">
+    <title>SciPy Tutorial - Hemant Verma</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Hemant Verma</div>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#tutorials" class="active">Tutorials</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="tutorial-page">
+        <div class="tutorial-header">
+            <h1>SciPy Tutorial</h1>
+            <p class="tutorial-subtitle">Master scientific computing with SciPy - numerical operations, optimization, and more</p>
+            <div class="tutorial-meta">
+                <span class="tag">SciPy</span>
+                <span class="tag">Numerical Computing</span>
+                <span class="tag">Python</span>
+            </div>
+        </div>
+
+        <div class="tutorial-content">
+            <nav class="tutorial-nav">
+                <ul>
+                    <li><a href="#introduction" class="active">Introduction</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#numerical-operations">Numerical Operations</a></li>
+                    <li><a href="#optimization">Optimization</a></li>
+                    <li><a href="#integration">Integration</a></li>
+                    <li><a href="#interpolation">Interpolation</a></li>
+                    <li><a href="#linear-algebra">Linear Algebra</a></li>
+                    <li><a href="#statistics">Statistics</a></li>
+                </ul>
+            </nav>
+
+            <article class="tutorial-article">
+                <section id="introduction">
+                    <h2>Introduction to SciPy</h2>
+                    <p>SciPy is an open-source Python library used for scientific and technical computing. It builds on NumPy and provides additional functionality for optimization, linear algebra, integration, interpolation, special functions, FFT, signal and image processing, ODE solvers, and other tasks common in science and engineering.</p>
+                </section>
+
+                <section id="installation">
+                    <h2>Installation</h2>
+                    <pre><code class="language-bash">pip install scipy numpy</code></pre>
+                    <p>SciPy requires NumPy, so make sure to install both packages.</p>
+                </section>
+
+                <section id="numerical-operations">
+                    <h2>Numerical Operations</h2>
+                    <p>SciPy provides various numerical operations that build upon NumPy's capabilities.</p>
+                    <pre><code class="language-python">import numpy as np
+from scipy import special
+
+# Example: Computing special functions
+x = np.linspace(0, 10, 100)
+y = special.jn(0, x)  # Bessel function of the first kind</code></pre>
+                </section>
+
+                <section id="optimization">
+                    <h2>Optimization</h2>
+                    <p>SciPy's optimization module provides various algorithms for finding minima of functions.</p>
+                    <pre><code class="language-python">from scipy.optimize import minimize
+
+def objective(x):
+    return x[0]**2 + x[1]**2
+
+# Minimize the function
+result = minimize(objective, [1, 1])
+print(result.x)  # [0. 0.]</code></pre>
+                </section>
+
+                <section id="integration">
+                    <h2>Integration</h2>
+                    <p>SciPy can perform both single and multiple integrals.</p>
+                    <pre><code class="language-python">from scipy.integrate import quad
+
+# Single integral
+result, error = quad(lambda x: x**2, 0, 1)
+print(result)  # 0.33333333333333337</code></pre>
+                </section>
+
+                <section id="interpolation">
+                    <h2>Interpolation</h2>
+                    <p>SciPy provides various interpolation methods for data analysis.</p>
+                    <pre><code class="language-python">from scipy.interpolate import interp1d
+import numpy as np
+
+x = np.linspace(0, 10, 10)
+y = np.sin(x)
+
+# Create interpolation function
+f = interp1d(x, y)
+
+# Interpolate at new points
+new_x = np.linspace(0, 10, 50)
+new_y = f(new_x)</code></pre>
+                </section>
+
+                <section id="linear-algebra">
+                    <h2>Linear Algebra</h2>
+                    <p>SciPy extends NumPy's linear algebra capabilities.</p>
+                    <pre><code class="language-python">from scipy.linalg import eig
+import numpy as np
+
+# Create matrix
+A = np.array([[1, 2], [3, 4]])
+
+# Compute eigenvalues and eigenvectors
+eigenvalues, eigenvectors = eig(A)
+print(eigenvalues)  # [ 5.37228132 -0.37228132]</code></pre>
+                </section>
+
+                <section id="statistics">
+                    <h2>Statistics</h2>
+                    <p>SciPy's stats module provides a wide range of statistical functions.</p>
+                    <pre><code class="language-python">from scipy.stats import norm
+
+# Generate normal distribution
+mu, sigma = 0, 0.1
+s = np.random.normal(mu, sigma, 1000)</code></pre>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Hemant Verma. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="../index.html#home">Home</a>
+                <a href="../index.html#tutorials">Tutorials</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
